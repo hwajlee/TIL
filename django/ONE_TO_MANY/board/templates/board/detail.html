@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ article.title }} ({{ article.comment_set.count }})</h1>
+
+<p>{{ article.content }}</p>
+<p>by - {{ article.user.username }}</p>
+{% comment "" %}로그인한 유저가 게시글 작성자 유저와 같을 때만 버튼 표시{% endcomment %}
+{% if request.user == article.user %}
+<div>
+    <a href="{% url 'board:article_update' article.pk  %}">
+        <button class="btn" style="background-color: aquamarine;">Edit</button>
+    </a> 
+
+    <form action="{% url 'board:article_delete' article.pk %}" method="POST">
+        {% csrf_token %}
+        <button class="btn" style="background-color: pink;" onclick="return confirm('게시글을 삭제할까요?')">Delete</button>
+    </form>
+</div>
+{% endif %}
+
+<hr>
+<!--include는 (comment)부품-->
+{% if request.user.is_authenticated %}
+{% include 'board/_comment_form.html' %}
+{% endif %}
+{% include 'board/_comment_list.html' %}
+
+{% endblock content %}

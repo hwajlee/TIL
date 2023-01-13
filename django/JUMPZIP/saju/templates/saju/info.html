@@ -1,0 +1,36 @@
+{% include 'base.html' %}
+
+{% block content %}
+<h1>2023년 신년 운세 Check!</h1>
+
+<form action="{% url 'saju:result' %}" method="POST" >
+    {% csrf_token %}
+    <div>
+        <h2> 본인 정보 </h2>
+        <label for="username">이름: </label>
+        <input id="username" type="text" name="username">
+    </div>
+    <div>
+        <label for="birth">출생연도: </label>
+        <select id='birth' name="calender">
+            <option selected>양력</option>
+            <option>음력</option>
+            <option>음력(윤)</option
+        </select>
+    
+        <input id="birth" type="data" value="1999-01-01" name='birth'>
+
+        <label for="birthtime">출생시간: </label>
+        <input id="birthtime" type="time" name='birthtime'>
+    </div>
+    <div>
+        <input id="gender" type="radio" name='female'>여성
+        <input id="gender" type="radio" name='male'>남성 
+    </div>
+
+    <input type="submit">
+</form> 
+
+
+
+{% endblock content %}

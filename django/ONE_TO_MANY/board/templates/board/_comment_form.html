@@ -1,0 +1,13 @@
+<!--board/_comment_form.html-->
+
+
+<!--사용자댓글 ui-->
+{% comment %} 댓글 입력창 {% endcomment %}
+
+<form action="{% url 'board:create_comment' article.pk%}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    
+    <button>얍</button>
+</form>
+

@@ -1,0 +1,26 @@
+<!--board/correct.html-->
+{% include 'board_base.html' %}
+
+{% block content %}
+
+<h1>Edit Posting</h1>
+
+<form action="{% url 'board:update' posting.pk %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="subject">제목: </label>
+        <input id="subject" name="subject" type="text" value={{ posting.subjdect}}>
+    </div>
+
+    <div>
+        <label for="description">내용: </label>
+        <textarea name="description" id="description" cols="30" rows="10">{{ posting.description}}</textarea>
+    </div>
+
+    <div>
+        <input type="submit" value="게시글 수정">
+    </div>
+</form>
+</form>
+
+{% endblock content %}

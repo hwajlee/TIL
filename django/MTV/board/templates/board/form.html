@@ -1,0 +1,25 @@
+<!--board/form.html-->
+
+{% include 'board_base.html' %}
+
+{% block content %}
+<h1>New Posting</h1>
+
+<form action="{% url 'board:form' %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="subject">SUBJECT: </label>
+        <input id="subject" name="subject" type="text">
+    </div>
+
+    <div>
+        <label for="description">DESCRIPTION: </label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+        <input type="submit" value="게시글 업로드">
+    </div>
+</form>
+
+{% endblock content %}

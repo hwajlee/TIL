@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Posting list</h1>
+
+<table class="table">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Author</th>
+        <th scope="col">Title</th>
+        <th scope="col">Replies</th>
+        <th scope="col">Updated</th>
+    </thead>
+    <tbody>
+    {% for article in articles %}
+    <tr>
+        <th scope="row">{{ article.pk }}</th>
+        <td>{{ article.user.username }}</td>
+        <td>
+            <a href="{% url 'board:article_detail' article.pk %}" style="color: black;text-decoration:none">{{article.title}}
+            </a>
+        </td>
+        <td>
+            <a href="{% url 'board:article_detail' article.pk %}"></a>{{ article.comment_set.count }}
+        </td>
+        <td>
+            <a href="{% url 'board:article_detail' article.pk %}"></a>{{ article.updated_at }}
+        </td>
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock content %}

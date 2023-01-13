@@ -1,0 +1,10 @@
+<!-- review/templates/index.html -->
+{% include 'base.html' %}
+
+{% block content %}
+
+<h1>Review/Index</h1>
+<a href="{% url 'review:hello' %}">Hello</a> 
+<!-- app 네임은 review고 패턴네임은 hello -->
+
+{% endblock content %}

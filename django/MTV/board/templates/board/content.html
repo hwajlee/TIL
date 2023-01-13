@@ -1,0 +1,31 @@
+<!--board/content.hmtl-->
+
+{% include 'board_base.html' %}
+
+{% block content %}
+<h1>{{ posting.subject }}</h1>
+
+<span>
+    {{ posting.created_at }}
+    {{ posting.updated_at }}
+</span>
+
+<p>
+    {{ posting.description }}
+</p>
+
+<div>
+    <a href="{% url 'board:correct' posting.pk %}">
+        <button>수정</button>
+    </a>
+    
+    <!-- /blog/{{ article.pk }}/delete/ -->
+    <form action="/board/{{ posting.pk }}/delete" method="POST">
+        {% csrf_token %}
+        <input onclick="return confirm('진짜 삭제?')" type="submit" value="삭제">
+    </form>
+    {% comment %}form안에 입력시 input type=sumbit이나 button이나 동일하게 나옴{% endcomment %}
+</div>
+
+
+{% endblock content %}
