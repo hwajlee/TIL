@@ -21,7 +21,7 @@
             </a>
         </td>
         <td>
-            <a href="{% url 'board:article_detail' article.pk %}"></a>{{ article.comment_set.count }}
+            <a href="{% url 'board:article_detail' article.pk %}"></a>({{ article.comments.count }}) | +{{article.like_users.count}}
         </td>
         <td>
             <a href="{% url 'board:article_detail' article.pk %}"></a>{{ article.updated_at }}

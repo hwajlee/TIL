@@ -2,18 +2,36 @@
 
 {% block content %}
 
-<h1>{{ article.title }} ({{ article.comment_set.count }})</h1>
+<h1>{{ article.title }} ({{ article.comments.count }})</h1>
+<p>by - {{ article.user.username }}</p>
 
 <p>{{ article.content }}</p>
-<p>by - {{ article.user.username }}</p>
+
+{% comment %} 좋아요 UI {% endcomment %}
+{% if request.users.is_authenticated %}
+<form action="{% url 'board:like_article' article.pk%}" method="POST">
+    {% csrf_token %}
+{% comment %} 
+() 소괄호 안 먹기 때문에 article.like_users.filter(pk=user.pk).exists() 불간능 
+{% endcomment %}
+    {% if is_like %}
+    <button>좋아요 취소</button>
+    {% else %}
+    <button>좋아요</button>
+    {% endif %}
+    <span>+{{ aritcle.like_users.count }}</span>
+</form>
+{% endif %}
+
+{% comment %} 수정/삭제 UI {% endcomment %}
 {% comment "" %}로그인한 유저가 게시글 작성자 유저와 같을 때만 버튼 표시{% endcomment %}
 {% if request.user == article.user %}
 <div>
-    <a href="{% url 'board:article_update' article.pk  %}">
+    <a href="{% url 'board:update_article' article.pk  %}">
         <button class="btn" style="background-color: aquamarine;">Edit</button>
     </a> 
 
-    <form action="{% url 'board:article_delete' article.pk %}" method="POST">
+    <form action="{% url 'board:delete_article' article.pk %}" method="POST">
         {% csrf_token %}
         <button class="btn" style="background-color: pink;" onclick="return confirm('게시글을 삭제할까요?')">Delete</button>
     </form>

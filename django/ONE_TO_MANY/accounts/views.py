@@ -1,20 +1,25 @@
 # accounts/views.py
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.forms import AuthenticationForm
+
+from django.contrib.auth import get_user_model
 from django.contrib.auth import login as auth_login, logout as auth_logout
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_http_methods, require_POST
+from django.contrib.auth.decorators import login_required
+
+from .forms import CustomUserCreationForm
 
 @ require_http_methods(['GET', 'POST'])
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
             return redirect('board:article_index')
 
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     context = {'form': form }
     return render(request, 'accounts/signup.html', context)
 

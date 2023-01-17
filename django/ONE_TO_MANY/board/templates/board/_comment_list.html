@@ -4,9 +4,9 @@
 목록을 조회한다는 거에서 for문 돌려야 한다는 것 바로 떠올라야함 {% endcomment %}
 {% comment "" %} detail.html에서 comment를 불러오려면 views.py에서 comment 불러와야함 {% endcomment %}
 <ul>
-    {% for comment in article.comment_set.all  %} <!--소괄호가 없는 세상 ^^-->
+    {% for comment in article.comments_set.all  %} <!--소괄호가 없는 세상 ^^-->
         <li>
-            {{ comment.user.username }} - {{ comment.content }}
+            {{ comment.user }} - {{ comment.content }}
             {% if  request.user == comment.user %}
             <form action="{% url 'board:delete_comment' article.pk comment.pk %}" method="POST" style="display: inline-block;">
                 {% csrf_token %}

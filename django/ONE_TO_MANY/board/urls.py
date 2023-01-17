@@ -15,8 +15,10 @@ urlpatterns = [
     # articles/1/comments/2/delete/
     path('<int:article_pk>/comments/<int:comment_pk>/delete', views.delete_comment, name='delete_comment'),
     # articles/1/update/
-    path('<int:article_pk>/update/', views.article_update, name='article_update'),
+    path('<int:article_pk>/update/', views.update_article, name='update_article'),
     # articles/1/delete/
-    path('<int:article_pk>/delete/', views.article_delete, name='article_delete'),
+    path('<int:article_pk>/delete/', views.delete_article, name='delete_article'),
+    # articles/1/like
+    path('<int:article_pk>/like/', views.like_article, name='like_article'),
 ]
 

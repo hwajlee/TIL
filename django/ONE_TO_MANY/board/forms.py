@@ -7,7 +7,8 @@ class ArticleForm(forms.ModelForm):
     
     class Meta:
         model = Article
-        exclude = ('user', )
+        fields = ('title', 'content', )
+        # exclude = ('user', )
 
 
 class CommentForm(forms.ModelForm):
@@ -21,3 +22,4 @@ class CommentForm(forms.ModelForm):
         # 댓글 작성이 가능하단 문제 발생 
         exclude = ('article', 'user', ) # class comment 모델에 필드명을 article로 지정했으므로
         # 특정 컬럼을 뺐다는 것은 검정 대상에서도 빠진다는 소리이므로 
+
