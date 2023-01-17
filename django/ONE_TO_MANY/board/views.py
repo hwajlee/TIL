@@ -75,6 +75,21 @@ def delete_comment(request, article_pk, comment_pk): # 뭐가 필요하지? 코�
 @require_http_methods(['GET', 'POST'])
 def update_article(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
+    # 작성자 아니면 돌려보내기
+    if request.user != article.user:
+        return redirect('board:article_detail', article.pk)
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, instance=article)        
+        if form.is_valid():
+            # 기존에 저장된 user_id 갱신할 필요가 없기때문에 commit=False 필요 X
+            article = form.save()
+            return redirect('board:article_detail', article.pk)
+    else:
+        form = ArticleForm(instance=article)
+    context = {'form': form}
+    return render(request, 'board/form.html', context)
+'''
     if request.method == 'POST':
         form = ArticleForm(request.POST, instance=article)
         if form.is_valid():
@@ -86,7 +101,7 @@ def update_article(request, article_pk):
         return redirect('board:article_detail', article.pk)
     context = { 'form': form, }
     return render(request, 'board/form.html', context)
-
+'''
 
 @login_required
 @require_POST
