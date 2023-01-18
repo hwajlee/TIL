@@ -26,6 +26,9 @@
             <a href="{% url 'polls:create_question' %}">New Question</a>
         </li>
         <li>
+            <a href="{% url 'accounts:profile' request.user.username %}">{{request.user.username}}님의 my page</a>
+        </li>
+        <li>
             <a href="{% url 'accounts:logout' %}">Logout</a>
         </li>
         {% endif %}

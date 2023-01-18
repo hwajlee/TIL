@@ -37,6 +37,8 @@ def question_index(request):
 def question_detail(request, question_pk):
     question = get_object_or_404(Question, pk=question_pk)
     form = ReplyForm()
+    # N개의 reply들이 모두 request.user가 vote 했는 지 여부
+    # reply.is_voted(user) => True/False
     context = {
         'question': question,
         'form': form,
@@ -89,13 +91,22 @@ def create_reply(request, question_pk):  # 댓글 저장만 담당
 
 @login_required
 @require_POST
-def reply_upvote(request, question_pk, reply_pk):  #/polls/1/replies/2/upvote/
+def vote_reply(request, question_pk, reply_pk):  #/polls/1/replies/2/vote/
     question = get_object_or_404(Question, pk=question_pk)
     reply = get_object_or_404(Reply, pk=reply_pk)
-    # +1 누른 사람(요청 보낸 사람)이 reply 작성자가 아닐 때만,
-    if request.user != reply.user:
-        reply.vote += 1
-        reply.save()
+    user = request.user
+
+    # 답변 작성자는 투표 못함! 
+    if request.user == reply.user:
+        return HttpResponseForbidden('자기추천은 금지')
+    
+    # 현재 답변과, 현재 사용자를 DB에 레코드 추가(polls_reply_vote_users 테이블에 추가해야 함)
+    # is_voted = reply.vote_users.filter(pk=user.pk).exists()
+    if reply.is_voted(user):
+        reply.vote_users.remove(user)
+    else:
+        reply.vote_users.add(user)
+        # requset.user.vote_reply.add(reply) 위 코드와 결과 동일하게 나옴 
     return redirect('polls:question_detail', question.pk)
 
 
