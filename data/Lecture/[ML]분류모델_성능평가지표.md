@@ -47,10 +47,10 @@
 
 ### 그 외 분류 성능 지표 
 ---
-### `Error Rate`
+#### `Error Rate`
 - Error Rate(오분류율): 모델이 전체 데이터에서 잘못 맞춘 비율 
   > Error Rate = $\frac{FP + FN}{TP + TN + FP + FN}$
-### `TNR(True Negative Rate)`
+#### `TNR(True Negative Rate)`
 - TNR(특이성): 실제 Negative 샘플 중 분류 모델이 Negative로 판정한 비율로 Specificity(특이도) 또는 Selectivity라고도 불림 (Recall과 반대 개념)
   > TNR = $\frac{TN}{FP + TN}$
 #### `FPR(False Positive Rate)`
@@ -65,6 +65,8 @@
 #### Reference
 - 분류 성능 지표 
   
+  @ https://en.wikipedia.org/wiki/Confusion_matrix
+
   @ https://ai-com.tistory.com/entry/ML-%EB%B6%84%EB%A5%98-%EC%84%B1%EB%8A%A5-%EC%A7%80%ED%91%9C-Precision%EC%A0%95%EB%B0%80%EB%8F%84-Recall%EC%9E%AC%ED%98%84%EC%9C%A8
   
   @ https://white-joy.tistory.com/9?category=1015070
