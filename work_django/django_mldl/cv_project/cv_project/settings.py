@@ -127,8 +127,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') # static 파일이 물리적으로 저장될 경로
 
+<<<<<<< Updated upstream
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+=======
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT_URL = '.'
+>>>>>>> Stashed changes
 
 # index.css 추가했을 때,
 # -> www.gscmldl.com/static/index.css URL로 일반 유저가 접근 가능
