@@ -1,6 +1,0 @@
-C:TILwork_django filter=lfs diff=lfs merge=lfs -text
-[[:space:]]490764370aa8d1cd78fd3811461fe42002e9580c417706942769f73c6059bb17 filter=lfs diff=lfs merge=lfs -text
-best_kobert_weights.h5 filter=lfs diff=lfs merge=lfs -text
-***.exe filter=lfs diff=lfs merge=lfs -text
-.h5 filter=lfs diff=lfs merge=lfs -text
-*.h5 filter=lfs diff=lfs merge=lfs -text
