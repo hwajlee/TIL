@@ -72,3 +72,79 @@ $ git push origin master
 ```
 $ git pull origin master
 ```
+
+## 정리
+위 내용을 표로 만들어 정리하면 다음과 같다.
+
+​
+| 상황                            | 명령어                           |
+| ------------------------------- | -------------------------------- |
+| 집에서 새로운 프로젝트 시작     | `$ mkdir project`                |
+| 프로젝트 폴더로 이동            | `$ cd project`                   |
+| 리포 초기화                     | `$ git init`                     |
+| README, .gitignore 생성         | `$ touch README.md .gitignore`   |
+| 파일 스테이징                   | `$ git add .`                    |
+| 커밋                            | `$ git commit -m 'first commit'` |
+| 원격저장소 생성                 | github 사이트에서 진행           |
+| 원격 저장소 등록                | `$ git remote add origin <URL>`  |
+| 원격 저장소 PUSH                | `$ git push origin master`       |
+| 다른 컴퓨터에서 원격저장소 복제 | `$ git clone <URL>`              |
+| 작업                            | `add`, `commit`                  |
+| 귀가 직전                       | `$ git push origin master`       |
+| 집 도착 이후                    | `$ git pull origin master`       |
+| 작업                            | `add`, `commit`                  |
+| 작업 종료                       | `$ git push origin master`       |
+| 다른 컴퓨터에서 반복            | `$ git pull origin master`       |
+
+---
+
+### 원격저장소 커밋 기록 삭제 
+Git hub에는 커밋 기록이 남아, 원격 저장소 상에는 삭제했다 하더라도 기록 조회를 통해 해당 파일 확인 가능 
+> 따라서 이미 올라가버린 민감한 파일 및 히스토리 삭제 필요 
+
+#### .gitignore에 추가 
+해당 파일 .gitignore에 추가 (해당 파일 확장자 전체 추가 원할시 `*.csv`와 가이 와일드 카드(*) 사용하여 추가)
+
+#### 변경사항 github에 반영 
+.gitignore에 추가 및 푸시 -> 깃허브에 해당 파일 삭제되었는 지 확인 
+> 만약 파일기 건재하다면? -> 캐시 삭제 후 다시 커밋 
+
+- **캐시 삭제**
+```
+$ git rm -r --cahced .
+$ git add .
+$ git commit -m 'rm cache'
+$ git push origin master
+```
+
+#### Github history에서 삭제 
+위 과정을 통해 깃허브에서 해당 파일 삭제했으나, 커밋기록까지 삭제 필요 
+
+* 주의사항: 파일 경로 설정 제대로 할 것. 파일 경로의 기준은 현재 디렉토리( master 표시 왼쪽에 표시)가 기준 
+  
+1. 커밋 기록 다시 쓰기 
+```
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch 경로/경로/파일명.확장자' --prune-empty --tag-name-filter cat -- --all
+```
+2. **성공했을 때**
+   > `Ref 'refs/remotes/origin/master' was rewritten` 이렇게 뜬다.
+3. **실패했을 때**
+   > `'C:/Users/TECH2_01/github/DACON_Airline_Delay/test.parquet' is outside repository at` 이런식으로 경로 밖에 있다고 뜬다.
+
+
+---
+## 에러 
+
+### fatal: bad object HEAD 
+* 해결법 
+1. .git 디렉토리 삭제 후 init 다시 생성 (git init)
+2. VScode를 재시작하여 소스 제어에 아무것도 출력되지 않는 현상 해결 
+
+### localhoset에 연결할 수 없습니다. 
+`git log`를 통해 푸시 이력 확인해보고, 레파지토리에 잘 올라와 있는 지 확인(어차피 레파지토리에만 잘 올라가면 되기 때문)
+
+---
+
+### 참고
+https://app.slack.com/client/T04DPM0NUKU/C04FEDADPU0 # 04_실시간코드
+https://github.com/CatSaveTheWorld/TIL/tree/master/git
