@@ -86,6 +86,10 @@ $ git log --oneline --graph # 깃 commit 로그를 자세히 출력한다. (그�
 ```
 
 ## 로컬 저장소 업데이트 
+cf) 원격 저장소와 로컬 저장소
+- 원격 저장소(Remote Repository): 파일이 원격 저장소 전용 서버에서 관리되며 여러 사람이 함께 공유하기 위한 저장소 
+- 로컬 저장소(Local Repository): 내 PC에 파일이 저장되는 개인 전용 저장소 
+> git 저장소는 로컬 저장소(local)와 원격 저장소(remote)로 나뉘는데, local에서 작업한 것은 remote로 push해줘야만 변경사항이 서버에 반영됨
 
 #### 로컬 저장소(Repository) 생성
 현재 디렉토리를 로컬 저장소로 만든다. (.git 폴더 생성)
