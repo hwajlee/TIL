@@ -1,3 +1,18 @@
+### 분류 모델의 평가지표
+---
+
+- ML 문제의 큰 범주 
+  - 분류 (Classification): 예측해야 할 대상의 개수가 정해져 있는 문제 
+    ex) 이미지에서 개, 고양이 분류 
+  - 회귀 (Regression): 예측해야 할 대상이 연속적인 숫자인 문제 
+    ex) 일기 예보에서 내일의 기온 예측 
+
+> 해결하고자 하는 문제의 목적에 맞게 평가지표를 설정해야 모델 성능을 제대로 평가할 수 있고, 이를 기준으로 모델 성능 고도화 가능! **분류모델에서 흔히 사용되는 평가 지표는?**
+
+<br>
+
+
+
 ### 혼동 행렬(Confusion Matrix)
 ---
 
@@ -113,17 +128,41 @@
 #### `Error Rate`
 - Error Rate(오분류율): 모델이 전체 데이터에서 잘못 맞춘 비율 
   > Error Rate = $\frac{FP + FN}{TP + TN + FP + FN}$
+
+  <br>
+
+
 #### `TNR(True Negative Rate)`
 - TNR(특이성): 실제 Negative 샘플 중 분류 모델이 Negative로 판정한 비율로 Specificity(특이도) 또는 Selectivity라고도 불림 (Recall과 반대 개념)
+  
+  <br>
+
+
   > TNR = $\frac{TN}{FP + TN}$
 #### `FPR(False Positive Rate)`
 - FPR(위양성률): 실제 Negative 샘플 중 분류 모델이 positive로 판정한 비율
   > FPR = $1 - TNR1$ = $\frac{FP}{FP + TN}$
+
+  <br>
+
+
 #### `ROC Curve`
-- ROC(Receiver Operating Characteristic) curve: threshold에 따른 TPR(=Recall)과 FPR(=Fall-out)을 나타낸 그래프로 대각선을 기준으로 좌상단에 붙어 있는 ROC curve일 수록 좋은 분류 성능 나타냄
+- ROC(Receiver Operating Characteristic) curve: threshold에 따른 TPR과 FPR(=Fall-out)을 나타낸 그래프로 대각선을 기준으로 좌상단에 붙어 있는 ROC curve일 수록 좋은 분류 성능 나타냄
+
+  - y축: 정답이 1인 케이스에 대해 1로 잘 예측하는 비율(TPR = $\frac{TP}{FN + TP}$) 
+  - X축: 정답이 1인 케이스에 대해 잘못 예측한 비율(FPR = $\frac{FP}{TN + FP}$)
+  - 모델의 임계값(Cutoff Value)를 변경시켜가며 그린 곡선을 나타냄 
+  > ![](./image/TPR%26FPR.png) 
+  출처: 부스트코스
+
   > ![](./Image/roc_curve.png)
   
   > ROC-AUC (Area Under the Curve) = ROC curve의 면적
+
+- AUC 
+  - ROC 곡선 아래 영역 
+  - 0~1 사이의 값을 가짐
+  - 1에 가까울 수록 모델이 잘 예측하는 것을 의미
 
 #### Reference
 - 분류 성능 지표 
