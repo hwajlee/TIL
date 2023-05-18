@@ -3,6 +3,8 @@
 ### 데이터의 구성 
 ![](./Image/데이터구성.png)
 
+![](./Image/데이터셋종류.png)
+
 - Train set 
   - 머신러닝 모델이 보고 학습하는 데이터 셋
 - Validation Set 
@@ -19,6 +21,19 @@
     - 가장 간단하면서도 많이 쓰이는 방법 
     - 장점: 데이터 셋의 크기가 크가는 가정 하에, 랜덤하게 각 Set으로 나눠도 대표성이 유지될 수 있으며 간편함
     - 단점: 데이터 셋의 크기가 작다면 전체 데이터를 대표하기에 어려움이 있을 가능성 존재 
+
+#### Stratified 방식 적용 
+![](./Image/stratified.png)
+
+- 각 클래스의 분포를 유지하기 위해 사용되는 방법 
+- 클래스가 3개가 있다는 가정 하에, 클래스 별로 비율이 뷸균등하게 분포되어 있다면 이를 쪼갤 때 또한 같은 비율 구성으로 쪼개도록 하는 방식
+- 전체 데이터에서 무작위로 샘플을 추출할 경우에 비해, **표본이 특정 클래스에 편중될 수 있다는 단점을 보완**하여 샘플의 대표성을 높이는 기법 
+  
+
+<br>
+
+![](./Image/k-fold_stratified.png)
+- K-fold에 적용시킨다면 위와 같은 형태
   
 <br>
 
@@ -60,19 +75,10 @@ print("The size of y_train: {},".format(len(y_train)), "The size of y_test: {}".
 
 - Hold-out validation과 다르게, Train과 Validation set을 여러 개 구성하는 방법 
 - 각 상황 별로 Train과 Validation을 다르게 구성하여 각 상황마다 모델을 학습시킨 후, 최종적으로 각자 다른 Train과 Validation을 거친 모델들을 모두 사용하여 Test set을 예측
-
-<br>
-
-#### Stratified 방식 적용 
-![](./Image/stratified.png)
-
-- 각 클래스의 분포를 유지하기 위해 사용되는 방법 
-- 클래스가 3개가 있다는 가정 하에, 클래스 별로 비율이 뷸균등하게 분포되어 있다면 이를 쪼갤 때 또한 같은 비율 구성으로 쪼개도록 하는 방식
-
-<br>
-
-![](./Image/k-fold_stratified.png)
-- K-fold에 적용시킨다면 위와 같은 형태
+- 사용 시 주의할 점 
+    - 머신러닝을 진행하는 과정에서 feature selection, data cleansing 등의 전처리 작업 또한 training 과정의 일부이기 때문에 이는 training set에 대해서만 시행
+    - 데이터를 쪼개기 전, 데이터 전체를 살펴 보고 특성에 맞게 어떤 기준을 세워 전처리를 하였다면 이는 쪼갠 뒤의 test data도 같은 기준으로 미리 전처리가 되어 cheating한 효과가 남 
+    - 따라서 data set을 먼저 나눈 뒤, train set에만 전처리를 시행하야 하며, 다음 fold에 대해 교차검증 시에도 같은 기준으로 전처리를 진행하여 validation set과 test set에 영향이 없도록 해야 함 
 
 <br>
 
@@ -96,3 +102,9 @@ print("The size of y_train: {},".format(len(y_train)), "The size of y_test: {}".
 ---
 #### 참고자료 
 이미지 소스 @부스트코스 머신러닝 기본 개념 소개(2) @요거트맨 velog, ResearchGate
+
+@ https://m.blog.naver.com/sjc02183/221739648990
+
+@ https://modern-manual.tistory.com/20
+
+@ https://modern-manual.tistory.com/20
