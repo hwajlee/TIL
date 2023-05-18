@@ -17,17 +17,28 @@
 <br>
 
 ### Scaling 
-1. Min-Max Scaling: 현재 값에서 Minimum 값을 빼고, Max 값과 Min 값의 차이로 나눈 값
-   
-   $X_{new} = \frac{X_i - min(X)}{max(X) - min(X)}$
+1. Min-Max Scaling (MinMaxScaler)
+   - 현재 값에서 Minimum 값을 빼고, Max 값과 Min 값의 차이로 나눈 값
+   - 최대값 = 1, 최솟값 = 0으로 조정, **아웃라이어에 취약** 
+   - 공식 
+      - $X_{new} = \frac{X_i - min(X)}{max(X) - min(X)}$
+  
+2. Max Absolute scaling (MaxAbsScaler)
+   - 0을 기준으로 절대값이 가장 큰 수가 1 또는 -1이 되도록 조정 
+   - 양수 데이터로만 구성된 데이터셋에는 **아웃라이어에 민감**
 
-2. Standard Scaling: 현재 값에서 평균 값을 빼고, 표준 편차로 나눈 값 
-   
-   $x_{new} = \frac{x-\mu}{\sigma}$
+3. Standard Scaling
+   - 현재 값에서 평균 값을 빼고, 표준 편차로 나눈 값 
+   - 평균 = 0, 표준편차 = 1로 조정해서 **모든 특성이 같은 크기를 갖게함**
+   - 공식 
+      - $x_{new} = \frac{x-\mu}{\sigma}$
 
-3. Robust Scaling: 현재 값에서 중위 값을 빼고, IQR로 나눈 값 
-   
-   $X_{scale} = \frac{x_i-x_{med}}{(x_{75}-x_{25})}$
+4. Robust Scaling
+   - 현재 값에서 중위 값을 빼고, IQR로 나눈 값 
+   - 중앙값 = 0, IQR(1분위~3분위) = 1로 조정 
+   - **아웃라이어 영향을 최소화**하며 정규분포보다 더 넓게 분포 
+   - 공식
+      - $X_{scale} = \frac{x_i-x_{med}}{(x_{75}-x_{25})}$
 
 ![](./Image/scaling.png)
 출처: 부스트코스 
@@ -35,8 +46,10 @@
 
 > 반면에 2번 자트는 Age 피쳐에 1E-6을 곱해 아주 작게 만들고 Scaling은 진행하지 않은 결과 Age 피쳐의 계수값이 아주 커져 타깃에 영향을 주는 피쳐가 되었음. 그리고 3번 차트는 Age 피쳐에 10E10을 곱해 아주 크게 만들고 Scaling 하지 않은 결과 Age 피쳐의 계수값은 아주 작아지고, 모델의 Error가 33.4로 커진 것을 확인 가능 
 
-**Scaling은 잘못하면 계수값에 영향을 주며, 그에 따라 모델의 성능에도 영향을 줄 수 있기 때문에 적절하게 Scaling하는 것이 매우 중요**
+- **Scaling은 잘못하면 계수값에 영향을 주며, 그에 따라 모델의 성능에도 영향을 줄 수 있기 때문에 적절하게 Scaling하는 것이 매우 중요**
 
+- **데이터 스케일링을 하는 이유가 아웃라이어의 영향을 최소화하는 것이기 때문에 보통은 영향을 가장 적게 받는 StandardScaler 혹은 RobustScaler를 주로 사용함** (모두 sklear에서 모듈을 제공 - 실습 코드 Data scaling 파일 참고)
+  
 <br>
 
 ### Scaling + Distribution 
@@ -83,3 +96,5 @@ cf) 왜도: 분포가 어디에 치우쳐져 있는 지를 보는 대표적인 �
 @ https://seeyapangpang.tistory.com/34
 
 @ https://gooopy.tistory.com/120
+
+@ https://for-my-wealthy-life.tistory.com/18
