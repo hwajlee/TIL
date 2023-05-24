@@ -12,6 +12,7 @@
 ### INNER JOIN(내부 조인)
 - 두 테이블을 조인할 때, 두 테이블에 모두 지정한 열의 테이터가 존재해야 함
 - **교집합**
+  
   ![](./img/inner_join.png)
 
 ```MySQL
@@ -40,6 +41,7 @@ WHERE 조인될 조건 AND 검색 조건
 ### OUTER JOIN(외부 조인)
 - 두 테이블을 조인할 때, **1개의 테이블에만 데이터가 있어도** 결과가 나옴
 - **합집합**
+  
   ![](./img/outer_join.png)
 
 ```MySQL
@@ -59,6 +61,7 @@ FROM <첫 번째 테이블(LEFT 테이블)>
 - 한쪽 테이블의 모든 행과 다른 쪽 테이블의 모든 행을 조인
 - 상호 조인의 결과, 전체 행 개수는 두 테이블의 각 행수를 곱한 수 
 - 카디션 곱(CARTESIAN PRODUCT)라고도 함 
+  
   ![](./img/cross_join.png)
 
 ```MySQL
@@ -72,6 +75,7 @@ FROM <첫 번째 테이블>
 ### SELF JOIN(셀프 조인)
 - 자신과 자신이 조인한다는 의미 
 - 1개의 테이블 사용 
+  
   ![](./IMG/self_join.png)
 
 ```MySQL
@@ -92,6 +96,7 @@ FROM <테이블> 별칭 A
 - UNION 내의 각 SELECT문을 **같은 수의 열**을 가져야 함 
 - 각각 SELECT문의 열을 또한 **동일한 순서**로 있어야 함 
 - 열은 **호환되는 데이터 형식**을 가져야 함 
+  
   ![](./IMG/UNION.png)
   
   출처: https://www.devart.com/dbforge/sql/sqlcomplete/union-vs-union-all.html
@@ -104,8 +109,8 @@ SELECT * FROM B
 
 <br>
 
-### uUNION ALL 
--두 SQL문의 결과를 결합하는 데 사용 
+### UNION ALL 
+- 두 SQL문의 결과를 결합하는 데 사용 
 - UNION과 UNION ALL의 차이  
   - UNION ALL의 경우 데이터 값이 중복하더라도 조건에 일치하는 데이터를 모두 표시 
   - 즉, 중복 제거하지 않음
@@ -119,3 +124,22 @@ SELECT * FROM B
 ![](./IMG/UNION&JOIN.png)
 
 출처: https://lyk00331.tistory.com/m/110
+
+| JOIN                                               | UNION                                           |
+|----------------------------------------------------|-------------------------------------------------|
+|적어도 하나의 속성이 공통인 두 테이블 속성 결합하고자 할 때 사용 | 하나의 결과 세트만 나타냄               |
+|새로운 열로 결헙 (**수평결합**)                     |새로운 행으로 결합 (**수직결합**)                   |
+
+- JOIN
+  
+  ![](./img/join_ex.png)
+
+- UNION
+  
+  ![](./img/union_ex.png)
+
+<br>
+
+---
+#### 참고자료 
+@ https://monawa.tistory.com/103#recentComments
