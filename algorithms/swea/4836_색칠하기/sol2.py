@@ -1,6 +1,6 @@
 import sys
 sys.stdin = open('input.txt')
-
+# 오답 ..
 # 테스트 케이스 수
 T = int(input())
 
