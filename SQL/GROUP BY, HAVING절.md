@@ -64,6 +64,7 @@ SELECT job, SUM(sal) "급여합계"
   - HAVING 절은 GROUP BY 절의 기준 항목이나 소그룹의 집계 함수를 이용한 조건을 표시할 수 있음
   - GROUP BY 절에 의한 소그룹별로 만들어진 집계 데이터 중, HAVING 절에서 제한 조건을 두어 조건을 만족하는 내용만 출력 
   - HAVING 절은 일반적으로 GROUP BY 절 뒤에 위치 
+  - GROUP BY 절로 그룹화된 컬럼에 대해서 HAVING 조건절을 사용하는 경우, 집계된 컬럼의 Filter 조건으로 사용 가눙 (이 경우 HAVING 절에 집계 함수 없이도 사용 가능)
 
 <br>
 
