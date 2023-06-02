@@ -70,4 +70,4 @@ SELECT job, SUM(sal) "급여합계"
 ---
 #### 참고자료
 @ https://dataonair.or.kr/db-tech-reference/d-guide/sql/?mod=document&uid=343
-@ 
+@ http://www.gurubee.net/lecture/1032
