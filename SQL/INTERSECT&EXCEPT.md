@@ -4,6 +4,7 @@
 ### 교집합 
 - SELECT * FROM TableA INTERSECT SELECT * FROM TableB 
 - 교집합 개념 (Inner Join 생각하기)
+- 중복된 행은 하나의 행으로 만듦 (Union 특징과 똑같음)
 
 <br>
 
@@ -12,6 +13,7 @@
 - TableA Row 내용 중 TableB와 Row 내용이 같지 않거나 TableA에 있는데 TableB에는 없는 데이터를 리턴 
 - 차집합 개념 
 - NOT IN 또는 NOT EXISTS로 대체 가능 
+- 중복된 행은 하나의 행으로 만듦
 
 <br>
 
