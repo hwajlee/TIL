@@ -3,7 +3,7 @@
 - JOIN 하는 범위가 다름 
 - 예시) 
 
-```MySQL
+```sql
 -- 1) 
 SELECT *
 FROM test1 a LEFT JOIN test2 b
