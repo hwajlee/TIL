@@ -106,6 +106,8 @@ FROM <테이블> 별칭 A
 
 출처: https://www.devart.com/dbforge/sql/sqlcomplete/union-vs-union-all.html
 
+![](./img/union.png)
+
 ```MySQL
 SELECT * FROM A
 UNION (ALL)
