@@ -101,7 +101,7 @@ FROM <테이블> 별칭 A
 - 각각 SELECT문의 열을 또한 **동일한 순서**로 있어야 함 
 - 열은 **호환되는 데이터 형식**을 가져야 함 
   
-  ![](2023-06-08-13-11-47.png)
+  ![](./img/union예시.png)
 
   출처: https://www.devart.com/dbforge/sql/sqlcomplete/union-vs-union-all.html
 
