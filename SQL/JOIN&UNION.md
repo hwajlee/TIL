@@ -126,7 +126,7 @@ SELECT * FROM B
 
 ## JOIN vs UNION
 ---
-![](./IMG/UNION&JOIN.png)
+![](./img/union_join차이.png)
 
 출처: https://lyk00331.tistory.com/m/110
 
