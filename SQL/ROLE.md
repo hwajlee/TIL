@@ -15,18 +15,18 @@
 
 ### 1. ROLE 생성하기 
 
-```MySQL
+```SQL
 CREATE ROLE manager;
 ```
 
 ### 2. ROLE에 권한 부여하기 
 
-```MySQL
+```SQL
 GRANT CREATE SESSION, CREATE TABLE TO manager;
 ```
 
 ### 3. 권한이 부여된 ROLE을 USER나 ROLE에 부여하기 
 
-```MySQL
+```SQL
 GRANT manager TO scott, test; // scott,  test라는 유저에게 부여한다는 의미 
 ```

@@ -17,7 +17,7 @@
   
   ![](./img/inner_join.png)
 
-```MySQL
+```SQL
 SELECT <열 목록>
 FROM <첫 번째 테이블>
     JOIN <두 번째 테이블>
@@ -28,7 +28,7 @@ FROM <첫 번째 테이블>
 - INNER JOIN을 JOIN이라고만 써도 INNER JOIN으로 인식함 
   
   
-```MySQL
+```SQL
 SELECT <열 목록>
 FROM <첫 번째 테이블>, <두 번째 테이블>
 
@@ -46,7 +46,7 @@ WHERE 조인될 조건 AND 검색 조건
   
   ![](./img/outer_join.png)
 
-```MySQL
+```SQL
 SELECT <열 목록>
 FROM <첫 번째 테이블(LEFT 테이블)>
         <LEFT | RIGHT | FULL> OUTER JOIN <두 번째 테이블(RIGHT 테이블)>
@@ -66,7 +66,7 @@ FROM <첫 번째 테이블(LEFT 테이블)>
   
   ![](./img/cross_join.png)
 
-```MySQL
+```SQL
 SELECT *
 FROM <첫 번째 테이블>
     CROSS JOIN <두 번째 테이블>
@@ -82,7 +82,7 @@ FROM <첫 번째 테이블>
 
   ![](./img/self.png)
 
-```MySQL
+```SQL
 SELECT <열 목록>
 FROM <테이블> 별칭 A
     INNER JOIN <테이블> 별칭 B
@@ -106,7 +106,7 @@ FROM <테이블> 별칭 A
   출처: https://www.devart.com/dbforge/sql/sqlcomplete/union-vs-union-all.html
 
 
-```MySQL
+```SQL
 SELECT * FROM A
 UNION (ALL)
 SELECT * FROM B

@@ -15,7 +15,7 @@
 - GROUP BY절은 집계 함수 없이도 사용될 수 있음 (DISTINCT와 용도가 비슷해짐)
 - 예제)
   
-```MySQL
+```SQL
 -- 부서별 사원수 조회
 SELECT '2005년' year, deptno 부서번호, COUNT(*) 사원수 
     FROM emp
@@ -31,7 +31,7 @@ SELECT '2005년' year, deptno 부서번호, COUNT(*) 사원수
 - HAVING 절은 GROUP BY 절과 함께 사용됨 
 - 예제)
 
-```MySQL
+```SQL
 -- 사원수가 다섯 명이 넘는 부서와 사원수 조회
 
 SELECT b.dname, COUNT(a.empno) "사원수"
@@ -40,7 +40,7 @@ SELECT b.dname, COUNT(a.empno) "사원수"
     HAVING COUNT(a.empno) > 5;
 ```
 
-```MySQL
+```SQL
 -- 전체 월급이 5000을 초과하는 JOB에 대해 JOB과 월급여 합계 조회 
 -- 단, 판매원(SALES)는 제외하고 월 급여 합계로 내림차순 정렬
 

@@ -13,7 +13,7 @@ INSERT INTO TEST37 VALUES(10, 12);
 
 - 전체 행의 갯수 COUNT 
 
-    ```MySQL
+    ```SQL
     SELECT COUNT(*) FROM TEST37;
     ```
 
@@ -27,7 +27,7 @@ INSERT INTO TEST37 VALUES(10, 12);
 
 - 특정 컬럼만 COUNT 
   
-    ```MySQL
+    ```SQL
     SELECT COUNT(COL1) FROM TEST37;
     ```
 
@@ -45,7 +45,7 @@ INSERT INTO TEST37 VALUES(10, 12);
 
 - IN()에 NULL 포함 
   
-  ```MySQL
+  ```SQL
   SELECT * FROM TEST37 WHERE COL1 IN(12, 10, NULL);
   ```
 
@@ -63,7 +63,7 @@ INSERT INTO TEST37 VALUES(10, 12);
 
 - NULL이 포함된 컬럼을 기준으로 GROUP BY한 경우 
 
-    ```MySQL
+    ```SQL
     SELECT COL1, COUNT(*) FROM TEST37 GROUP BY(COL1);
     ```
 
