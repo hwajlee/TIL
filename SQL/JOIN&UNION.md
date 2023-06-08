@@ -103,7 +103,8 @@ FROM <테이블> 별칭 A
   
   ![](./img/union.png)
   
-  출처: https://www.devart.com/dbforge/sql/sqlcomplete/union-vs-union-all.html
+
+출처: https://www.devart.com/dbforge/sql/sqlcomplete/union-vs-union-all.html
 
 ```MySQL
 SELECT * FROM A
