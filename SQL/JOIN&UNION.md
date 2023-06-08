@@ -101,7 +101,7 @@ FROM <테이블> 별칭 A
 - 각각 SELECT문의 열을 또한 **동일한 순서**로 있어야 함 
 - 열은 **호환되는 데이터 형식**을 가져야 함 
   
-  ![](./IMG/UNION.png)
+![](./IMG/UNION.png)
   
   출처: https://www.devart.com/dbforge/sql/sqlcomplete/union-vs-union-all.html
 
@@ -119,7 +119,7 @@ SELECT * FROM B
   - UNION ALL의 경우 데이터 값이 중복하더라도 조건에 일치하는 데이터를 모두 표시 
   - 즉, 중복 제거하지 않음
   
-  ![](./img/UNIONALL.png)
+![](./img/UNIONALL.png)
 
 <br>
 
@@ -136,11 +136,11 @@ SELECT * FROM B
 
 - JOIN
   
-  ![](./img/join_ex.png)
+![](./img/join_ex.png)
 
 - UNION
   
-  ![](./img/union_ex.png)
+![](./img/union_ex.png)
 
 <br>
 
