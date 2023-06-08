@@ -108,6 +108,8 @@ FROM <테이블> 별칭 A
 
 ![](./img/union.png)
 
+![](./img/UNIONALL.png)
+
 ```MySQL
 SELECT * FROM A
 UNION (ALL)
