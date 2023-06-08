@@ -6,7 +6,7 @@
 <br>
 
 ### 기본적인 사용법 
-```MySQL
+```SQL
 SELECT * FROM 테이블 WHERE 칼럼 LIKE 'PATTERN'
 ```
 - 패턴 종류 
@@ -27,7 +27,7 @@ SELECT * FROM 테이블 WHERE 칼럼 LIKE 'PATTERN'
 |5          |라면볶이     |1500       |
 
 1. '라면' 키워드를 포함하고 있는 행을 모두 출력하고 싶다면? (NAME 칼럼에 데이터 중 앞 뒤에 무슨 글자가 오던지 '라면'을 포함하고 있다면 출력)
-   ```MySQL
+   ```SQL
    SELECT * FROM TABLE WHERE NAME LIKE '%라면%'
    ```
 
@@ -36,7 +36,7 @@ SELECT * FROM 테이블 WHERE 칼럼 LIKE 'PATTERN'
 <br>
 
 2. '라면'으로 끝나는 문자가 있는 행 출력 
-   ```MySQL
+   ```SQL
    SELECT * FROM TABLE WHERE NAME LIKE '%라면'
    ```
    
@@ -45,7 +45,7 @@ SELECT * FROM 테이블 WHERE 칼럼 LIKE 'PATTERN'
 <br>
 
 3. '라면'으로 시작하는 문자가 있는 행 출력 
-   ```MySQL
+   ```SQL
    SELECT * FROM TABLE WHERE LIKE '라면%'
    ```
 
@@ -54,7 +54,7 @@ SELECT * FROM 테이블 WHERE 칼럼 LIKE 'PATTERN'
 <br>
 
 4. 한 글자 뒤에 '라면' 글자가 있는 행 출력
-   ```MySQL
+   ```SQL
    SELECT * FROM TABLE WHERE LIKE '_라면%'
    ```
 
@@ -63,7 +63,7 @@ SELECT * FROM 테이블 WHERE 칼럼 LIKE 'PATTERN'
 <br>
 
 5. '라면' 문자 앞 뒤로 2개의 문자가 있는 행 출력 
-   ```MySQL
+   ```SQL
    SELECT * FROM TABLE WHERE NAME LIKE '__라면__'
    ```
 
@@ -72,7 +72,7 @@ SELECT * FROM 테이블 WHERE 칼럼 LIKE 'PATTERN'
 <br>
 
 6. 컬럼 데이터가 '라면'인 행 출력 
-   ```MySQL
+   ```SQL
    SELECT * FROM TABLE WHERE NAME LIKE '라면'
    ```
 
