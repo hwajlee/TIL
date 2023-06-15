@@ -215,7 +215,7 @@
 
 <br>
 
-#### Bagging vs Boosting 
+#### **Bagging vs Boosting**
 
 |           |Bagging         |Boosting        |
 |-----------|----------------|----------------|
@@ -223,6 +223,31 @@
 |특징       |다양한 Tree 생성 |정밀한 Tree 생성  |
 
 - Bagging은 병렬적으로 여러 개의 독립적인 DT(의사결정나무)를 만들어 평균을 낸다면, **Boosting은 직렬적으로 1개의 모델을 계속 업데이터 시켜나가는 것이 큰 차이점** 
+
+<br>
+
+#### **Hyper-parameter**
+
+![](./Image/learning_rate.png)
+
+- Tree model에서의 Learning Rate는  Gradient Descent에서 나온 Learning Rate와 같은 개념 
+- 왼쪽 그림과 같이 Learning Rate를 너무 적게 설정하면 수렴 속도가 너무 느려지고, 오른쪽 그림과 같이 너무 크게 설정하면 수렴이 아닌 발산을 할 수가 있음 (최적의 파라미터 값을 지나칠 수 있음)
+- 따라서 가운데 그림처럼 적당히 Learning Rate 값을 찾아서 사용해야 모델이 제대로 학습할 수 있음 
+
+<br>
+
+#### Tree Depth & Leaves
+
+![](./Image/트리깊이.png)
+
+- Learning Rate 외에, Tree model에서는 트리의 깊이(Depth)와 잎사귀(Number of Leaves)를 설정할 수 있음 
+- 트리를 너무 깊게 만들거나 잎사귀를 제한 없이 모두 사용하게 된다면, Overfitting의 위험이 있음 
+
+<br>
+
+#### 기타 Hyper-parameter
+
+![](./Image/트리모델파라미터.png)
 
 <br>
 
