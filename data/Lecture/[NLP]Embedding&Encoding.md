@@ -25,46 +25,50 @@
 
 <br>
 
+
 ### Embedding vs Encoding 
-- Embedding: 토크나이징된 단어 토큰들을 벡터들로 변환하는 과정 
-- Encoding: Embedding된 벡터들을 Sentence Matrix로 변환하는 과정 
-- 보통 Encoder에서 Embedding과 Encoding을 모두 수행함 
+
+#### Embedding
+- 특정 단어를 기계가 알아 들을 수 있는 방법으로 수치화 한 것 
+
+#### Encoding
+- 벡터를 활용해 특징에 대해 수치 데이터로 변환하는 것 
+- ex) 
+  |A 특징
+
+- 딥러닝 모델에는 text를 input으로 넣을 수 없기 때문에 text를 숫자로 변환해 넣어주어야 하는 데 이것을 **word Encoding**이라고 함 
+  
+  ![](./Image/워드인코딩.png)
+
+  출처: acdong tistory
+
+  - "Thank you love  you"를 위처럼 0, 1, 2로 변환 
+
+- 하지만 딥러닝에서 자주 사용하는 인코딩 방법은 **One Hot Encoding**
+  
+  ![](./Image/원핫인코딩.png)
+
+  - 단어 갯수만큼의 n차원 Vector를 만들어 독립적인 방법으로 표현하는 것 
+  - ex) 중복되지 않는 단어가 100개면 100차원 Vector 
+  
+    ![](./Image/원핫인코딩2.png)
+
+  - But.. 원핫인코딩을 하면 'King'이라는 단어가 'woman'보다 'man'과 더 유사하다는 것을 알 수 X 
+  - 유사도 측정 방법으로는 대표적으로 유클리디안 유사도와 코사인 유사도가 있는 데, 원핫인코딩을 했을 때 위 그림과 같이 방향 및 거리가 똑같이 1이라 서로 간의 유사도를 알 수 없음 
 
 <br>
 
-- 텍스트가 들어오면 토크나이징을 통해 단어 토큰들로 변환
-   
-    ![](./Image/토큰화.png)
-
-- 단어 토큰들은 Embedding을 통해 일련의 단어 벡터들로 변환됨(각각은 Dense vector)
+- 원핫인코딩이 아닌 **Embedding**을 사용하면 저차원 상태로 단어 간의 `유사도`를 구할 수 있음 
   
-  ![](./Image/dense_vector.png)
+  ![](./Image/임베딩.png)
 
-- 일련의 단어 벡터들은 흔히 Bi-LSTM과 같은 모델을 이용해 순방향 마지막 값과 역방향 마지막 값을 Concat 하는 방식으로, 즉 Encoding을 통해 Sentence Matrix로 변환됨 
-  
-  ![](./Image/sentence_matrix.png)
-
-- Sentence Matrix와 Context vector 간의 Attention 연산을 통해 단일 벡터를 얻음 (두 Sentence Matrix 간의 연산도 가능)
-  
-  ![](./Image/단일벡터.png)
-
-- 이 단일 벡터는 Feed forward 네트워크로 전달되어 Prediction을 수행함 
-  
-  ![](./Image/예측.png)
+  - 유사한 단어인 man과 king / woman과 queen 끼리 뭉쳐있음을 알 수 있음
+  - 이것이 바로 임베딩 기법이고, 대표적으로 **word2vec**가 있음 
 
 <br>
 
-#### Feed Forward & Attention
-
-- Feed Forward(피드포워드 뉴럴네트워크): 오직 입력층에서 출력층 방향으로 연산이 전개되는 신경망 
-  
-    ![](./Image/피드포워드.png)
-
-    출처: wikidocs
-
-- Attention Mechanism
 ---
 #### 참고자료
-@ https://beausty23.tistory.com/223
+@ https://beausty23.tistory.com/223 (토큰화)
 
-@ https://katenam32.tistory.com/40
+@ https://acdongpgm.tistory.com/179 (인코딩과 임베딩)
