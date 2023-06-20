@@ -112,3 +112,5 @@ Learning rate와 Batch size간 상관관계에 대해 다룬 논문
 ---
 #### 참고자료 
 @ https://ladun.tistory.com/85
+
+@ https://inhovation97.tistory.com/32
